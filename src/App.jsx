@@ -32,7 +32,9 @@ useEffect(() => {
         </div>
          
           <span className="todo-created-at">{
-          creactedAt.replace("T", " ")}
+        creactedAt ? creactedAt.replace("T", " ") : ""
+
+          }
           </span>
    
    
