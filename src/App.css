@@ -1,36 +1,230 @@
-.todo-cards{
-
-  border: 1px solid #ccc;
-  margin: 20px;
-  padding: 5px 20px;
-  border-radius: 6px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
- display: flex;
- align-items: center;
-position: relative;
-
+body {
+  background: #ffe6f2;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-
-.todo-icon{
-  font-size: 40px;
-  margin: 0px 20px; 
-}
-
-.todo-priority{
-  background-color: black;
-  color: white;
-  padding: 5px 10px;
-  min-width: 50px;
-  text-align: center;
-  border-radius: 50px;
-  font-size: 15px;
+.app-wrapper {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+
+/* Top section */
+.app-container {
+  background: #fff0f7;
+  width: 600px;
+  max-width: 95%;
+  padding: 25px 40px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.25);
+  text-align: center;
+  border: 1px solid #ffd1e8;
+}
+
+h1 {
+  color: #ff4da6;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+/* Add task form */
+.add-task-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.add-task-form input,
+.add-task-form select {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ffcce0;
+  flex: 1;
+  background: #fff;
+  color: #333;
+}
+
+.add-task-form input:focus,
+.add-task-form select:focus {
+  outline: none;
+  border-color: #ff66b2;
+  box-shadow: 0 0 4px rgba(255, 102, 178, 0.5);
+}
+
+.add-task-form button {
+  background-color: #ff66b2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+
+.add-task-form button:hover {
+  background-color: #e60073;
+  transform: scale(1.05);
+}
+
+/* Task list section */
+.todo-section {
+  width: 600px;
+  max-width: 95%;
+  margin-top: 25px;
+  background: #fff0f7;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 4px 14px rgba(255, 105, 180, 0.2);
+  border: 1px solid #ffd1e8;
+}
+
+/* Task card layout */
+.todo-cards {
+  border: 1px solid #ffd6ea;
+  border-radius: 12px;
+  padding: 15px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 15px 0;
+  background: white;
+  box-shadow: 0 3px 8px rgba(255, 192, 203, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.todo-cards:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255, 182, 193, 0.5);
+}
+
+/* Icon and text */
+.todo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.todo-icon {
+  font-size: 32px;
+  margin-right: 10px;
+}
+
+.todo-details {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.todo-details h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.todo-done h2 {
+  text-decoration: line-through;
+  color: #b26b84;
+  opacity: 0.7;
+}
+
+/* Priority tag */
+.todo-priority {
+  padding: 4px 12px;
+  border-radius: 50px;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
   margin-left: auto;
 }
 
-.todo-created-at{
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+.todo-priority.High {
+  background-color: #ff3385;
+}
+.todo-priority.Medium {
+  background-color: #ff80b3;
+}
+.todo-priority.Low {
+  background-color: #ffb3cc;
+}
+
+/* Footer area for buttons + date */
+.todo-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.todo-created-at {
+  font-size: 12px;
+  color: #999;
+}
+
+.todo-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.todo-actions button {
+  background: transparent;
+  border: 1px solid #ff66b2;
+  color: #ff3385;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.todo-actions button:hover {
+  background: #ffe0eb;
+  transform: scale(1.05);
+}
+
+/* Delete button (bin) */
+.delete-btn {
+  border: 1px solid #000;
+  color: #000;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.delete-btn:hover {
+  background: #000;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 650px) {
+  .todo-cards {
+    padding: 12px;
+  }
+
+  .todo-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .todo-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .todo-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
 }
